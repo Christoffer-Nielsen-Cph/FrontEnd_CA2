@@ -2,6 +2,7 @@ import React, {useState,useEffect} from 'react';
 import {Route, Routes} from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Header from "./components/Header.jsx";
+import CreateUser from "./pages/CreateUser.jsx";
 import facade from "./utils/loginFacade.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
@@ -24,6 +25,7 @@ function App(props) {
                 <Route path="/" element={<Home
                     facade={facade}
                 />}/>
+                <Route path="/createUser" element={<CreateUser/>}/>
                 <Route path="*" element={<h1>Page Not Found !!!!</h1>}/>
             </Routes>
         </>

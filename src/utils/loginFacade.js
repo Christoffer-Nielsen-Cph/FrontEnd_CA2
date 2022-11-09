@@ -34,6 +34,12 @@ function loginFacade() {
             })
     }
 
+    const createUser = (user,password) => {
+        const options = makeOptions("POST",null,{"userName": user,"userPass": password})
+        return fetch(URL+"/api/info",options)
+            .then(handleHttpErrors)
+    }
+
     const fetchData = (endpoint, updateAction, SetErrorMessage) =>
     {
         const options = makeOptions("GET", true);
@@ -92,6 +98,17 @@ function loginFacade() {
             return username
         } else return ""
     }
+    const getUserId = () =>
+    {
+        const token = getToken()
+        if (token != null)
+        {
+            const payloadBase64 = getToken().split('.')[1]
+            const decodedClaims = JSON.parse(window.atob(payloadBase64))
+            const id = decodedClaims.id
+            return id
+        } else return ""
+    }
 
     const hasUserAccess = (neededRole, loggedIn) =>
     {
@@ -102,6 +119,7 @@ function loginFacade() {
 
     return {
         makeOptions,
+        createUser,
         setToken,
         getToken,
         loggedIn,
