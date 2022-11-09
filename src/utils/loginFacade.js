@@ -7,7 +7,7 @@ function handleHttpErrors(res) {
     return res.json();
 }
 
-function apiFacade() {
+function loginFacade() {
 
     const setToken = (token) => {
         localStorage.setItem('jwtToken', token)
@@ -114,5 +114,5 @@ function apiFacade() {
     }
 }
 
-const facade = apiFacade();
+const facade = loginFacade();
 export default facade;

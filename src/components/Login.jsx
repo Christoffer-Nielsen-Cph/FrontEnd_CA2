@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import facade from "../utils/apiFacade.js";
+import facade from "../utils/loginFacade.js";
 
 function Login({setLoggedIn, setErrorMsg}) {
     const init = {username: "", password: ""};
@@ -23,7 +23,7 @@ function Login({setLoggedIn, setErrorMsg}) {
         <div className="login-container">
             <form>
                 <input onChange={onChange} type="text" placeholder="Username" id="username"/>{" "}
-                <input onChange={onChange} type="text" placeholder="Password" id="password"/>
+                <input onChange={onChange} type="password" placeholder="Password" id="password"/>
                 <button onClick={performLogin} type="submit">Login</button>
             </form>
         </div>

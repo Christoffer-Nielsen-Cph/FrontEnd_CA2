@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import facade from "../utils/apiFacade.js";
+import facade from "../utils/loginFacade.js";
 
 export default function LoggedIn({setLoggedIn}) {
 
