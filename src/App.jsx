@@ -13,16 +13,8 @@ function App(props) {
     const [errorMessage, setErrorMessage] = useState('All is good ... so far');
 
     useEffect(() => {
-        if (!facade.validateToken()) facade.logout();
         if (facade.getToken()) setLoggedIn(true);
     }, []);
-
-    const logout = () => {
-        facade.logout();
-        setLoggedIn(false);
-        setErrorMessage('Logged out.')
-    };
-
 
 
     return (

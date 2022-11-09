@@ -99,6 +99,7 @@ function apiFacade() {
         return loggedIn && roles.includes(neededRole)
     }
 
+
     return {
         makeOptions,
         setToken,
