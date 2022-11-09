@@ -22,9 +22,7 @@ function App(props) {
        <>
             <Header setLoggedIn={setLoggedIn} loggedIn={loggedIn} facade={facade}/>
             <Routes>
-                <Route path="/" element={<Home
-                    facade={facade}
-                />}/>
+                <Route path="/" element={<Home facade={facade}/>}/>
                 <Route path="/createUser" element={<CreateUser/>}/>
                 <Route path="*" element={<h1>Page Not Found !!!!</h1>}/>
             </Routes>

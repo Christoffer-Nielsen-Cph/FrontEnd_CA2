@@ -14,15 +14,16 @@ function Header({setErrorMessage, loggedIn, setLoggedIn, facade}) {
     return (
         <nav className="topnav">
             <NavLink className="active" to="/"><i className="fa fa-fw fa-home"></i> Home</NavLink>
+
+
             {!loggedIn ? (<CreateUserButton/>) :
                 (<>
-
                 </>)}
+
             {!loggedIn ? (<></>) :
                 (<div>
                     <ShowUserName setLoggedIn={setLoggedIn}/>
                 </div>)}
-
             {!loggedIn ? (<Login setLoggedIn={setLoggedIn} setErrorMsg={setErrorMessage}  />) :
                 (<div>
                     <LoggedIn setLoggedIn={setLoggedIn}/>
