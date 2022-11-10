@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import facade from "../utils/loginFacade.js";
+import userFacade from "../utils/loginFacade.js";
 import "../styles/header.css";
 
-function CreateUser(props) {
+function RegisterUser(props) {
 
     const init = {userName: "", userPass: ""};
     const [loginCredentials, setLoginCredentials] = useState(init);
@@ -13,7 +13,7 @@ function CreateUser(props) {
     }
 
     const createUser = (user, pass) => {
-        facade.createUser(user, pass)
+        userFacade.createUser(user, pass)
     }
 
     const onChange = (evt) => {
@@ -34,4 +34,4 @@ function CreateUser(props) {
     )
 }
 
-export default CreateUser;
+export default RegisterUser;

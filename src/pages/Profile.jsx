@@ -1,12 +1,12 @@
 import React from 'react';
-import facade from "../utils/loginFacade.js";
+import userFacade from "../utils/loginFacade.js";
 
 function Profile(props) {
     return (
         <div>
             <h1>Profile page</h1>
-            <p>Your username: {facade.getUserName()}</p>
-            <p>Your role: {facade.getUserRoles()}</p>
+            <p>Your username: {userFacade.getUserName()}</p>
+            <p>Your role: {userFacade.getUserRoles()}</p>
         </div>
     );
 }

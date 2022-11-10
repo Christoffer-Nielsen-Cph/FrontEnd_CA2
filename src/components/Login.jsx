@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import facade from "../utils/loginFacade.js";
+import userFacade from "../utils/loginFacade.js";
 
 function Login({setLoggedIn, setErrorMsg}) {
     const init = {username: "", password: ""};
@@ -11,7 +11,7 @@ function Login({setLoggedIn, setErrorMsg}) {
     }
 
     const login = (user, pass) => {
-        facade.login(user, pass)
+        userFacade.login(user, pass)
             .then(res => setLoggedIn(true))
     }
 

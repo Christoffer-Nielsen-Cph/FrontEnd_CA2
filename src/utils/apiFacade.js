@@ -7,7 +7,7 @@ function handleHttpErrors(res) {
     return res.json();
 }
 
-function loginFacade() {
+function apiFacade() {
 
     const setToken = (token) => {
         localStorage.setItem('jwtToken', token)
@@ -32,12 +32,6 @@ function loginFacade() {
             .then(res => {
                 setToken(res.token)
             })
-    }
-
-    const createUser = (user,password) => {
-        const options = makeOptions("POST",null,{"userName": user,"userPass": password})
-        return fetch(URL+"/api/info",options)
-            .then(handleHttpErrors)
     }
 
     const fetchData = (endpoint, updateAction, SetErrorMessage) =>
@@ -87,28 +81,6 @@ function loginFacade() {
             return roles
         } else return ""
     }
-    const getUserName = () =>
-    {
-        const token = getToken()
-        if (token != null)
-        {
-            const payloadBase64 = getToken().split('.')[1]
-            const decodedClaims = JSON.parse(window.atob(payloadBase64))
-            const username = decodedClaims.username
-            return username
-        } else return ""
-    }
-    const getUserId = () =>
-    {
-        const token = getToken()
-        if (token != null)
-        {
-            const payloadBase64 = getToken().split('.')[1]
-            const decodedClaims = JSON.parse(window.atob(payloadBase64))
-            const id = decodedClaims.id
-            return id
-        } else return ""
-    }
 
     const hasUserAccess = (neededRole, loggedIn) =>
     {
@@ -116,10 +88,8 @@ function loginFacade() {
         return loggedIn && roles.includes(neededRole)
     }
 
-
     return {
         makeOptions,
-        createUser,
         setToken,
         getToken,
         loggedIn,
@@ -127,10 +97,9 @@ function loginFacade() {
         logout,
         fetchData,
         getUserRoles,
-        getUserName,
         hasUserAccess
     }
 }
 
-const userFacade = loginFacade();
-export default userFacade;
+const facade = apiFacade();
+export default facade;

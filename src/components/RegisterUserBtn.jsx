@@ -1,7 +1,7 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
 
-function CreateUserButton({loggedIn}) {
+function RegisterUserBtn({loggedIn}) {
 
     const navigate = useNavigate();
 
@@ -12,4 +12,4 @@ function CreateUserButton({loggedIn}) {
     );
 }
 
-export default CreateUserButton;
+export default RegisterUserBtn;

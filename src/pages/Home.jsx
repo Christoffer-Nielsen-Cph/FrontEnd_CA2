@@ -7,6 +7,8 @@ function Home({ facade}) {
         <div>
             <h1>Home</h1>
             <p> Welcome {facade.getUserName()}</p>
+            <h2>Quick guide on how to setup the startcode:</h2>
+            <h4>test</h4>
         </div>
     );
 }
