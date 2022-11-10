@@ -1,11 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useNavigate} from "react-router-dom";
 
 function CreateUserButton({loggedIn}) {
 
     const navigate = useNavigate();
-
-
 
     return (
         <div className="login-container">

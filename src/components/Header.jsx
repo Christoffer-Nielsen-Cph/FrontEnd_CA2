@@ -21,9 +21,10 @@ function Header({setErrorMessage, loggedIn, setLoggedIn, facade}) {
                 </>)}
 
             {!loggedIn ? (<></>) :
-                (<div>
-                    <ShowUserName setLoggedIn={setLoggedIn}/>
+                (<div><ShowUserName setLoggedIn={setLoggedIn}/>
                 </div>)}
+
+
             {!loggedIn ? (<Login setLoggedIn={setLoggedIn} setErrorMsg={setErrorMessage}  />) :
                 (<div>
                     <LoggedIn setLoggedIn={setLoggedIn}/>
