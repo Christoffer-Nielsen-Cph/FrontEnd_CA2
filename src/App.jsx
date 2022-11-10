@@ -17,6 +17,7 @@ function App(props) {
     const [loggedIn, setLoggedIn] = useState(false)
     const [errorMessage, setErrorMessage] = useState('All is good ... so far');
 
+
     useEffect(() => {
         if (userFacade.getToken()) setLoggedIn(true);
     }, []);

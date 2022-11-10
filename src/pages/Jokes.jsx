@@ -8,8 +8,6 @@ function Jokes({ facade, setErrorMessage }) {
     const [chuckJoke, setChuckJoke] = useState({ chuckJoke: '', chuckJokeReference: '' });
     const [dadJoke, setDadJoke] = useState({ dadJoke: '', dadJokeReference: '' });
 
-    console.log(facade);
-
     const updateChuckJokes = (data) => {
         console.log('data', data);
         setChuckJoke({ chuckJoke: data.chuckJoke, chuckJokeReference: data.chuckJokeReference });

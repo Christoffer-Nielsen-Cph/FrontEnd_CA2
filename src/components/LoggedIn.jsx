@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import userFacade from "../utils/loginFacade.js";
 
 export default function LoggedIn({setLoggedIn}) {

@@ -1,9 +1,6 @@
-import {useEffect} from "react";
-
 import React from 'react';
 
 function AdminPanelDelete({user,users,setUsers}) {
-
 
     const deleteUser = async (id) => {
         const res = await fetch(`http://localhost:8080/api/info/user/${id}`, {

@@ -1,7 +1,6 @@
 import React from 'react';
-import Login from "../components/Login.jsx";
 
-function Home({ facade}) {
+function Home({facade}) {
 
     return (
         <div>

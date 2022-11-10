@@ -40,6 +40,12 @@ function loginFacade() {
             .then(handleHttpErrors)
     }
 
+    const updateUser = (user,userId) => {
+        const options = makeOptions("PUT",null,{"userName": user})
+        return fetch(URL +"/api/info/"+userId,options)
+            .then(handleHttpErrors)
+    }
+
     const fetchData = (endpoint, updateAction, SetErrorMessage) =>
     {
         const options = makeOptions("GET", true);
@@ -98,6 +104,7 @@ function loginFacade() {
             return username
         } else return ""
     }
+
     const getUserId = () =>
     {
         const token = getToken()
@@ -120,6 +127,7 @@ function loginFacade() {
     return {
         makeOptions,
         createUser,
+        updateUser,
         setToken,
         getToken,
         loggedIn,
@@ -128,6 +136,7 @@ function loginFacade() {
         fetchData,
         getUserRoles,
         getUserName,
+        getUserId,
         hasUserAccess
     }
 }
