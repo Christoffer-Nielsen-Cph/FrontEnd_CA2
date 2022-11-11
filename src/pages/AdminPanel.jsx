@@ -1,11 +1,40 @@
 import React, {useEffect, useState} from 'react';
 import AdminPanelDelete from "../components/AdminPanelDelete.jsx";
+import userFacade from "../utils/loginFacade.js";
+import {useNavigate} from "react-router-dom";
 
 
 function AdminPanel(props) {
 
     const [users, setUsers] = useState([]);
-    //const [usersChanged, setUsersChanged] = useState(false);
+    const [hidden,setHidden] = useState(true)
+    const init = {id: "",userName: ""};
+    const [newUserName, setNewUserName] = useState(init);
+
+    const performUpdateUser = (evt) => {
+        evt.preventDefault();
+        updateUser(newUserName.userName, newUserName.id);
+    }
+
+    const updateUser = (user, id) => {
+        userFacade.updateUser(user, id)
+    }
+
+    const update = (evt) => {
+        setNewUserName({...newUserName, [evt.target.id]: evt.target.value})
+        console.log(newUserName)
+
+    }
+
+
+    const btnText = () => {
+        if(hidden){
+            return "Update User"
+        } else{
+            return "Close"
+        }
+    }
+
 
     useEffect(() => {
         const getData = async () => {
@@ -20,6 +49,15 @@ function AdminPanel(props) {
 
     return (
         <>
+            <button className="admin_editUser_Btn" onClick={()=>setHidden(s => !s)}>{btnText()}</button>
+            {!hidden ? <form onSubmit={performUpdateUser} >
+                <label className="label_admin_editUser">Id:</label>
+                <input className="admin_editUser"type="number" id="id" value={newUserName.id} onChange={update}/>
+                <label className="label_admin_editUser">Username:</label>
+                <input className="admin_editUser" type="text" id="userName" value={newUserName.userName} onChange={update}/>
+                <input className="admin_editUser_Btn" type="submit" value="Update"/>
+            </form> : null}
+
             {users.length &&
                 <table className="userTable">
                 <thead>
@@ -32,8 +70,6 @@ function AdminPanel(props) {
                         <td>{user.id}</td>
                         <td>{user.userName}</td>
                             <td>{user.roles.toString()}</td>
-
-
                             <td><AdminPanelDelete user={user} users={users} setUsers={setUsers}/></td>
                     </tr>
                     );
