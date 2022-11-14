@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import userFacade from "../utils/loginFacade.js";
+import userfacade from "../utils/userFacade.js";
 import RegisterUserBtn from "../components/RegisterUserBtn.jsx";
 
 function Profile() {
@@ -10,17 +10,17 @@ function Profile() {
 
     const performUpdateUser = (evt) => {
         evt.preventDefault();
-        updateUser(newUserName.userName, userFacade.getUserId());
+        updateUser(newUserName.userName, userfacade.getUserId());
     }
 
     const updateUser = (user, pass) => {
-        userFacade.updateUser(user,userFacade.getUserId())
+        userfacade.updateUser(user,userfacade.getUserId())
     }
 
     const onChange = (evt) => {
         setNewUserName({...newUserName, [evt.target.id]: evt.target.value})
         console.log(newUserName)
-        console.log(userFacade.getUserId())
+
     }
 
     const btnClick = () => {
@@ -36,7 +36,7 @@ function Profile() {
         <div>
             <h1>Profile page</h1>
             <button onClick={btnClick}>Edit profile</button>
-            <p>Your username: {userFacade.getUserName()}</p>
+            <p>Your username: {userfacade.getUserName()}</p>
 
             {checked ?  <form onSubmit={performUpdateUser}>
                 <input id="userName" type="text" placeholder="Type a new username" onChange={onChange}/>
@@ -46,7 +46,7 @@ function Profile() {
             </form> : null }
 
 
-            <p>Your role: {userFacade.getUserRoles()}</p>
+            <p>Your role: {userfacade.getUserRoles()}</p>
         </div>
     );
 }

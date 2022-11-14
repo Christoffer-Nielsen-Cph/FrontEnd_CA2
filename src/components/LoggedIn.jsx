@@ -1,10 +1,10 @@
 import React from "react";
-import userFacade from "../utils/loginFacade.js";
+import loginfacade from "../utils/loginFacade.js";
 
 export default function LoggedIn({setLoggedIn}) {
 
     const logout = () => {
-        userFacade.logout()
+        loginfacade.logout()
         setLoggedIn(false)
     }
 

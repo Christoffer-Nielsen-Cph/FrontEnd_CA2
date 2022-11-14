@@ -4,7 +4,7 @@ import dad from "../images/dad.gif"
 import { Row, Col, Image} from 'react-bootstrap';
 import "../styles/main.css";
 
-function Jokes({ facade, setErrorMessage }) {
+function Jokes({ apifacade, setErrorMessage }) {
     const [chuckJoke, setChuckJoke] = useState({ chuckJoke: '', chuckJokeReference: '' });
     const [dadJoke, setDadJoke] = useState({ dadJoke: '', dadJokeReference: '' });
 
@@ -15,8 +15,8 @@ function Jokes({ facade, setErrorMessage }) {
     };
 
     useEffect(() => {
-        facade.fetchData('jokes', updateChuckJokes, setErrorMessage);
-    }, [facade, setErrorMessage]);
+        apifacade.fetchData('jokes', updateChuckJokes, setErrorMessage);
+    }, [apifacade, setErrorMessage]);
 
     return (
         <>

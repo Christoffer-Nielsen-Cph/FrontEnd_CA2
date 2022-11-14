@@ -1,4 +1,4 @@
-const API_URL = "https://cphcn332.dk/tomcat/BackEnd_CA2/api";
+const API_URL = "http://localhost:8080";
 
 export {
     API_URL

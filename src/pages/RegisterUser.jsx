@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import userFacade from "../utils/loginFacade.js";
+import userfacade from "../utils/userFacade.js";
 import "../styles/header.css";
 
 function RegisterUser(props) {
@@ -13,7 +13,7 @@ function RegisterUser(props) {
     }
 
     const createUser = (user, pass) => {
-        userFacade.createUser(user, pass)
+        userfacade.createUser(user, pass)
     }
 
     const onChange = (evt) => {

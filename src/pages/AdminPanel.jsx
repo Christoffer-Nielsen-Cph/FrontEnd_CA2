@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import AdminPanelDelete from "../components/AdminPanelDelete.jsx";
-import userFacade from "../utils/loginFacade.js";
+import userfacade from "../utils/userFacade.js";
 import {useNavigate} from "react-router-dom";
 
 
@@ -17,7 +17,7 @@ function AdminPanel(props) {
     }
 
     const updateUser = (user, id) => {
-        userFacade.updateUser(user, id)
+        userfacade.updateUser(user, id)
     }
 
     const update = (evt) => {
